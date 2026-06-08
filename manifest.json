@@ -1,0 +1,25 @@
+{
+  "manifest_version": "0.2",
+  "name": "multimeter-mcp",
+  "version": "0.1.0",
+  "description": "USB/serial bench multimeters and simulator.",
+  "author": { "name": "Sandra Schipal", "email": "sandra@schipal.at" },
+  "repository": { "type": "git", "url": "https://github.com/sandraschi/multimeter-mcp" },
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "server": {
+    "type": "python",
+    "entry_point": "src/multimeter_mcp/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run", "--project", "${__dirname}", "python", "-m", "multimeter_mcp"],
+      "env": { "PYTHONUNBUFFERED": "1" }
+    }
+  },
+  "tools": [
+    { "name": "dmm_device", "description": "Device discovery and connection" },
+    { "name": "dmm_run", "description": "Primary bench operations" },
+    { "name": "dmm_help", "description": "Help and quickstart" }
+  ],
+  "compatibility": { "platforms": ["win32", "darwin", "linux"] }
+}

@@ -1,0 +1,4 @@
+# multimeter-mcp
+
+Tools: dmm_device, dmm_run, dmm_help
+Ports: 11005/11006
