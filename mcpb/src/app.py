@@ -9,7 +9,6 @@ mcp = FastMCP(
     on_duplicate="replace",
 )
 
-
 @mcp.resource("resource://dmm/quickstart")
 def quickstart() -> str:
     return (
@@ -17,7 +16,6 @@ def quickstart() -> str:
         "2. dmm_measure(operation='set_probe', dc_voltage_v=5.0) "
         "3. dmm_measure(operation='dc_voltage')"
     )
-
 
 @mcp.resource("resource://dmm/capabilities")
 def capabilities() -> str:

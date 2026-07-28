@@ -1,12 +1,8 @@
-set windows-shell := ["pwsh.exe", "-NoLogo", "-Command"]
+set windows-shell := ["powershell.exe", "-NoProfile", "-Command"]
+import 'scripts/just/fleet.just'
 serve:
     uv run python -m multimeter_mcp
 lint:
     uv run ruff check .
 test:
     uv run pytest tests/ -v
-mcpb-pack:
-    $ver = "0.1.0"
-    New-Item -ItemType Directory -Path dist -Force
-    npx --yes @anthropic-ai/mcpb@latest validate .
-    npx --yes @anthropic-ai/mcpb@latest pack . "dist/multimeter-mcp-v$ver.mcpb"

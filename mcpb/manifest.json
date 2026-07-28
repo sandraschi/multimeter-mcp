@@ -1,0 +1,43 @@
+{
+  "manifest_version": "0.2",
+  "name": "multimeter-mcp",
+  "version": "0.2.0",
+  "description": "FastMCP 3.2+ — USB/serial bench multimeters and honest probe-model simulator.",
+  "author": { "name": "Sandra Schipal" },
+  "server": {
+    "type": "python",
+    "entry_point": "src/multimeter_mcp/__main__.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run","--directory","${PWD}","python","-m","multimeter_mcp"],
+      "env": {
+        "PYTHONPATH": "${PWD}/src",
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  },
+  "tools": [
+    { "name": "health", "description": "health" },
+    { "name": "status", "description": "status" },
+    { "name": "capabilities", "description": "capabilities" },
+    { "name": "api_tool_call", "description": "api_tool_call" },
+    { "name": "dmm_device", "description": "dmm_device" },
+    { "name": "dmm_device_list", "description": "dmm_device(list)" },
+    { "name": "dmm_device_connect", "description": "dmm_device(connect)" },
+    { "name": "dmm_device_disconnect", "description": "dmm_device(disconnect)" },
+    { "name": "dmm_device_status", "description": "dmm_device(status)" },
+    { "name": "dmm_device_backends", "description": "dmm_device(backends)" },
+    { "name": "dmm_help", "description": "dmm_help" },
+    { "name": "dmm_help_quickstart", "description": "dmm_help(quickstart)" },
+    { "name": "dmm_help_discover", "description": "dmm_help(discover)" },
+    { "name": "dmm_help_status", "description": "dmm_help(status)" },
+    { "name": "dmm_measure", "description": "dmm_measure" },
+    { "name": "dmm_measure_dc_voltage", "description": "dmm_measure(dc_voltage)" },
+    { "name": "dmm_measure_dc_current", "description": "dmm_measure(dc_current)" },
+    { "name": "dmm_measure_resistance", "description": "dmm_measure(resistance)" },
+    { "name": "dmm_measure_continuity", "description": "dmm_measure(continuity)" },
+    { "name": "dmm_measure_set_probe", "description": "dmm_measure(set_probe)" },
+    { "name": "dmm_measure_read", "description": "dmm_measure(read)" },
+    { "name": "dmm_measure_last", "description": "dmm_measure(last)" }
+  ]
+}

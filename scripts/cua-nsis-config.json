@@ -1,0 +1,14 @@
+{
+    "product_name": "Multimeter MCP",
+    "install_dir": "%LOCALAPPDATA%\\Multimeter MCP",
+    "operator_exe": "multimeter-mcp-native.exe",
+    "backend_process_names": ["multimeter-mcp-native", "multimeter-mcp-backend"],
+    "backend_port": 10700,
+    "health_path": "/api/v1/health",
+    "diagnostics_path": "/api/v1/diagnostics",
+    "feature_smoke_path": "/api/v1/system/info",
+    "window_title_re": "Multimeter MCP",
+    "nsis_glob": "native/target/release/bundle/nsis/Multimeter MCP_*_x64-setup.exe",
+    "bridge_ok_text": "REST bridge reachable",
+    "uninstall_registry_filter": "*Multimeter MCP*"
+}
