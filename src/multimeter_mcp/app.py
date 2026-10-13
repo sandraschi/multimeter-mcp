@@ -3,7 +3,7 @@ from fastmcp import FastMCP
 mcp = FastMCP(
     "MultimeterMCP",
     instructions=(
-        "USB/serial bench multimeters — SCPI serial + honest probe-model simulator. "
+        "USB/serial bench multimeters - SCPI serial + honest probe-model simulator. "
         "Portmanteau: dmm_device, dmm_measure, dmm_help."
     ),
     on_duplicate="replace",
