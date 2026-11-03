@@ -20,6 +20,19 @@ uv run python -m multimeter_mcp --stdio
 
 Backend: **11005** · Frontend: **11006** (webapp planned)
 
-## Fleet
+## Bench family
 
-Part of the Sandra bench MCP family with oscilloscope-mcp and logic-analyzer-mcp.
+One bench, nine servers. `bench-orchestrator-mcp` conducts (`mcu_bringup` drives
+its six wired peers); the rest are instruments:
+
+| Server | Role | Wired peer? |
+|--------|------|-------------|
+| [bench-orchestrator-mcp](https://github.com/sandraschi/bench-orchestrator-mcp) | Conductor — `bench_workflow` (`power_check`, `bus_check`, `debug_check`, `mcu_bringup`) | — (it conducts) |
+| [jtag-swd-mcp](https://github.com/sandraschi/jtag-swd-mcp) | Halt / inspect / flash the CPU | yes (`dbg`) |
+| [oscilloscope-mcp](https://github.com/sandraschi/oscilloscope-mcp) | Scope traces — signal integrity | yes (`scope`) |
+| [logic-analyzer-mcp](https://github.com/sandraschi/logic-analyzer-mcp) | Digital capture + UART/I2C/SPI decode | yes (`la`) |
+| `multimeter-mcp` (here) | DMM — rails, continuity ("is it even powered?") | yes (`dmm`) |
+| [power-supply-mcp](https://github.com/sandraschi/power-supply-mcp) | Bench PSU — target power | yes (`psu`) |
+| [function-generator-mcp](https://github.com/sandraschi/function-generator-mcp) | AWG stimulus — clocks, reset, fault injection | yes (`fgen`) |
+| [bench-camera-mcp](https://github.com/sandraschi/bench-camera-mcp) | Bench vision — LEDs, 7-segment | family (not wired) |
+| [spectrum-analyzer-mcp](https://github.com/sandraschi/spectrum-analyzer-mcp) | Spectrum — EMI around the target | family (not wired) |
