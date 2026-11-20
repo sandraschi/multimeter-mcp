@@ -7,7 +7,13 @@ from multimeter_mcp.app import mcp
 from multimeter_mcp.web import setup_webapp
 
 app = FastAPI(title="MultimeterMCP", version=__version__)
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["tauri://localhost", "https://tauri.localhost"],
+    allow_origin_regex=r"https?://(?:localhost|127\.0\.0\.1)(?::\d+)?$",
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 setup_webapp(app, mcp)
 app.mount("/mcp", mcp.http_app(path="/"))
 
